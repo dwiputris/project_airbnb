@@ -25,7 +25,7 @@ dataframe = dataframe[dataframe["Price"] <= 2000000]
 dataframe = dataframe[dataframe["Meters from chosen location"] <= 7000
 
 # Display as integer
-dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(str)
+dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(int)
 # Round of values
 dataframe["Price"] = "Rp " + (dataframe["Price"].astype(int)).astype(str) # <--- CHANGE THIS POUND SYMBOL IF YOU CHOSE CURRENCY OTHER THAN POUND
 # Rename the number to a string
