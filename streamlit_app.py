@@ -24,7 +24,7 @@ dataframe = pd.read_csv(
 dataframe = dataframe[dataframe["Price"] < 2000000]
 
 # Display as integer
-dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(int)
+dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(str)
 # Round of values
 dataframe["Price"] = "Rp " + (dataframe["Price"].astype(int)).astype(str) # <--- CHANGE THIS POUND SYMBOL IF YOU CHOSE CURRENCY OTHER THAN POUND
 # Rename the number to a string
@@ -34,7 +34,7 @@ dataframe["Location"] = dataframe["Location"].replace(
 
 # Display dataframe and text
 st.dataframe(dataframe)
-st.markdown("Below is a map showing all the Airbnb listings with a blue dot and the Zaanse Schans with a skyblue dot.")
+st.markdown("Below is a map showing all the Airbnb listings with a blue dot and the Zaanse Schans with a red dot.")
 
 # Create the plotly express figure
 fig = px.scatter_mapbox(
@@ -42,6 +42,7 @@ fig = px.scatter_mapbox(
     lat="Latitude",
     lon="Longitude",
     color="Location",
+    color_discrete_sequence=["red", "blue"]
     zoom=11,
     height=500,
     width=800,
