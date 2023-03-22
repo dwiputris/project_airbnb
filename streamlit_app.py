@@ -5,8 +5,8 @@ from PIL import Image
 
 # Display title and text
 st.title("Airbnb Listings: Amsterdam")
-image = Image.open('https://unsplash.com/s/photos/Zaanse-Schans')
-st.image(image=image, caption="Windmills in Zaanse Schans")
+# image = Image.open('https://unsplash.com/s/photos/Zaanse-Schans')
+# st.image(image=image, caption="Windmills in Zaanse Schans")
 st.markdown("Airbnb listings near *Zaanse Schans*, Amsterdam with budget of IDR 2,000,000 or less")
 
 # Read dataframe
