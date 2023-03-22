@@ -21,7 +21,7 @@ dataframe = pd.read_csv(
 
 # We have a limited budget, therefore we would like to exclude
 # listings with a price below 2000000 IDR per night
-dataframe = dataframe[dataframe["Price"] <= 2000000]
+#dataframe = dataframe[dataframe["Price"] <= 2000000]
 dataframe = dataframe[dataframe["Meters from chosen location"] <= 7000].reset_index(drop=True)
 
 # Display as integer
