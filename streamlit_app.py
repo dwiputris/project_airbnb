@@ -3,8 +3,8 @@ import plotly.express as px
 import streamlit as st
 
 # Display title and text
-st.title("Week 1 - Data and visualization")
-st.markdown("Here we can see the dataframe created during this weeks project.")
+st.title("Airbnb Listings: Amsterdam")
+st.markdown("Here we can see Airbnb listings near Zaanse Schans, Amsterdam with budget below IDR 2,000,000")
 
 # Read dataframe
 dataframe = pd.read_csv(
@@ -20,13 +20,13 @@ dataframe = pd.read_csv(
 )
 
 # We have a limited budget, therefore we would like to exclude
-# listings with a price above 2000000 IDR per night
-dataframe = dataframe[dataframe["Price"] <= 2000000]
+# listings with a price below 2000000 IDR per night
+dataframe = dataframe[dataframe["Price"] < 2000000]
 
 # Display as integer
 dataframe["Airbnb Listing ID"] = dataframe["Airbnb Listing ID"].astype(int)
 # Round of values
-dataframe["Price"] = "Rp " + dataframe["Price"].round(0).astype(str) # <--- CHANGE THIS POUND SYMBOL IF YOU CHOSE CURRENCY OTHER THAN POUND
+dataframe["Price"] = "Rp " + (dataframe["Price"].astype(int)).astype(str) # <--- CHANGE THIS POUND SYMBOL IF YOU CHOSE CURRENCY OTHER THAN POUND
 # Rename the number to a string
 dataframe["Location"] = dataframe["Location"].replace(
     {1.0: "To visit", 0.0: "Airbnb listing"}
@@ -34,7 +34,7 @@ dataframe["Location"] = dataframe["Location"].replace(
 
 # Display dataframe and text
 st.dataframe(dataframe)
-st.markdown("Below is a map showing all the Airbnb listings with a red dot and the location we've chosen with a blue dot.")
+st.markdown("Below is a map showing all the Airbnb listings with a blue dot and the Zaanse Schans with a skyblue dot.")
 
 # Create the plotly express figure
 fig = px.scatter_mapbox(
