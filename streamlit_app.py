@@ -4,7 +4,7 @@ import streamlit as st
 
 # Display title and text
 st.title("Airbnb Listings: Amsterdam")
-st.markdown("Here we can see Airbnb listings near Zaanse Schans, Amsterdam with budget below IDR 2,000,000")
+st.markdown("Airbnb listings near *Zaanse Schans*, Amsterdam with budget below IDR 2,000,000")
 
 # Read dataframe
 dataframe = pd.read_csv(
